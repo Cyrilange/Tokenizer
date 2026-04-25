@@ -2,7 +2,7 @@
 
 const { Wallet } = require("ethers");
 
-const mnemonic = "island away angle hour corn practice drive bless wheel aware owner view";
+const mnemonic = "your 12 words";
 
 const wallet = Wallet.fromPhrase(mnemonic);
 
