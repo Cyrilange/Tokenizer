@@ -1,50 +1,138 @@
+# ⬡ SocialFi42 — SCF Token
 
-Check the crypto on the blockchain
-https://sepolia.etherscan.io/
-0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036
+> A decentralized social media token built on Ethereum (Sepolia testnet).  
+> Own your data. Own your value.
 
-mint :
+---
 
+## 🔗 Contract
+
+| Field | Value |
+|-------|-------|
+| **Network** | Ethereum Sepolia (testnet) |
+| **Contract Address** | `0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036` |
+| **Standard** | ERC-20 |
+| **Symbol** | SCF |
+| **Decimals** | 18 |
+
+🔍 [View on Etherscan](https://sepolia.etherscan.io/address/0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036)
+
+---
+
+## 🌐 What is Ethereum & the Blockchain?
+
+**Blockchain** is a public, decentralized ledger — a list of transactions recorded across thousands of computers simultaneously. No single entity controls it. Once a transaction is written, it cannot be altered.
+
+**Ethereum** is a programmable blockchain. Unlike Bitcoin (which only records transfers of value), Ethereum lets developers deploy **smart contracts** — self-executing programs that live on-chain. When you call a function like `mint()` or `transfer()`, you're not calling a server: you're sending a transaction directly to code running on the blockchain.
+
+**Key concepts:**
+- 🧱 **Block** — a batch of transactions validated and added to the chain
+- ⛽ **Gas** — the fee paid to the network to execute a transaction
+- 🔑 **Private key** — your cryptographic identity; whoever holds it controls the wallet
+- 📜 **Smart contract** — immutable code deployed at a fixed address on-chain
+- 🧪 **Sepolia** — an Ethereum testnet; real network behavior, but fake ETH (free to use for development)
+
+---
+
+## 🚀 Frontend
+
+The project includes a React interface (`Action.jsx`) to interact with the contract directly from the browser using MetaMask.
+
+**Features:**
+- Connect MetaMask wallet
+- Check SCF token balance
+- Transfer tokens to any address
+- Mint new tokens (owner only)
+
+```bash
+npm install
+npm run dev
+```
+
+> Make sure MetaMask is installed and connected to the **Sepolia** network.
+
+---
+
+## 🛠️ Interact via Terminal (Foundry / Cast)
+
+### Mint tokens
+
+```bash
 cast send 0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036 \
-"mint(address,uint256)" \
-0xAbC1234567890aBcDEF1234567890aBcDEF12345 \
-1000000000000000000 \
---rpc-url $RPC_URL \
---private-key $PRIVATE_KEY
+  "mint(address,uint256)" \
+  <RECIPIENT_ADDRESS> \
+  1000000000000000000 \
+  --rpc-url $RPC_URL \
+  --private-key $PRIVATE_KEY
+```
 
+> `1000000000000000000` = 1 SCF (18 decimals)
 
-result :
+### Check balance
 
-csalamithome@penguin:~/Tokenizer$ cast send 0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036 \
-"mint(address,uint256)" \
-0xAbC1234567890aBcDEF1234567890aBcDEF12345 \
-1000000000000000000 \
---rpc-url $RPC_URL \
---private-key $PRIVATE_KEY
-
-blockHash            0x0920af57c896536d3d2a45206fd8e3b4e0255b9433cdd9506db4b93dfada359d
-blockNumber          10729691
-contractAddress      
-cumulativeGasUsed    34447846
-effectiveGasPrice    123583724
-from                 0xE38691C26030aAA5aA11f968dF80c876571e1F08
-gasUsed              71251
-logs                 [{"address":"0x3ce1936445bf78966faf9e067d06ae4205ed0036","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x0000000000000000000000000000000000000000000000000000000000000000","0x000000000000000000000000abc1234567890abcdef1234567890abcdef12345"],"data":"0x0000000000000000000000000000000000000000000000000de0b6b3a7640000","blockHash":"0x0920af57c896536d3d2a45206fd8e3b4e0255b9433cdd9506db4b93dfada359d","blockNumber":"0xa3b8db","blockTimestamp":"0x69ecbe30","transactionHash":"0xe105c8fb2333e3b5f248357fa3c974c4e5ddd22a1907d5aa546da90f34b9151b","transactionIndex":"0x73","logIndex":"0x59a","removed":false}]
-logsBloom            0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000000000000080000000000000000000000000008000000000000000000000000000000000000000000000000020010000000000000000800000000000000002000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000002000000000000000000020000000000000000002000000000000000000000000000000000000000000000000
-root                 
-status               1 (success)
-transactionHash      0xe105c8fb2333e3b5f248357fa3c974c4e5ddd22a1907d5aa546da90f34b9151b
-transactionIndex     115
-type                 2
-blobGasPrice         
-blobGasUsed          
-to                   0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036
-csalamithome@penguin:~/Tokenizer$ 
-
-
-to  read the contract with the terminal :
-
+```bash
 cast call 0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036 \
-"balanceOf(address)(uint256)" \
-0xAbC1234567890aBcDEF1234567890aBcDEF12345 \
---rpc-url $RPC_URL
+  "balanceOf(address)(uint256)" \
+  <WALLET_ADDRESS> \
+  --rpc-url $RPC_URL
+```
+
+### Get fee history (Alchemy)
+
+```bash
+curl https://eth-sepolia.g.alchemy.com/v2/<YOUR_API_KEY> \
+  --request POST \
+  --header 'content-type: application/json' \
+  --data '{
+    "id": 1,
+    "jsonrpc": "2.0",
+    "method": "eth_feeHistory",
+    "params": ["0x5", "latest", [20, 30]]
+  }'
+```
+
+---
+
+## 📄 Example Transaction
+
+A successful `mint()` call on Sepolia:
+
+```
+transactionHash   0xe105c8fb2333e3b5f248357fa3c974c4e5ddd22a1907d5aa546da90f34b9151b
+blockNumber       10729691
+status            1 (success)
+gasUsed           71251
+effectiveGasPrice 123583724 wei
+from              0xE38691C26030aAA5aA11f968dF80c876571e1F08
+to                0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036
+```
+
+---
+
+## 📦 Environment Variables
+
+Create a `.env` file at the root of your project:
+
+```env
+RPC_URL=https://eth-sepolia.g.alchemy.com/v2/<YOUR_API_KEY>
+PRIVATE_KEY=<YOUR_PRIVATE_KEY>
+```
+
+> ⚠️ **Never commit your `.env` file.** Add it to `.gitignore`.
+
+---
+
+## 🗺️ Tokenomics
+
+| Allocation | Share |
+|------------|-------|
+| User Rewards | 80% |
+| Marketing | 10% |
+| Treasury | 10% |
+
+---
+
+## 📜 License
+
+Non-profit project by **csalamit** — 2026  
+Built with ❤️ on Ethereum Sepolia.
