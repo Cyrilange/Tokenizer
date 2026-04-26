@@ -1,3 +1,5 @@
+_this project is made by csalamit_
+
 # ⬡ SocialFi42 — SCF Token
 
 > A decentralized social media token built on Ethereum (Sepolia testnet).  
@@ -16,6 +18,10 @@
 | **Decimals** | 18 |
 
 🔍 [View on Etherscan](https://sepolia.etherscan.io/address/0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036)
+
+
+
+![img of the blockchain](image.png)
 
 ---
 
