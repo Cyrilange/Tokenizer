@@ -1,7 +1,8 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.27;
 
 import "forge-std/Script.sol";
-import "../code/SocialFi.sol";
+import {SocialFi42} from "../code/SocialFi.sol";
 
 contract Deployment is Script {
     function run() external {

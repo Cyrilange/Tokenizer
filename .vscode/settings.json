@@ -1,4 +1,4 @@
 {
-  "solidity.packageDefaultDependenciesContractsDirectory": "",
-  "solidity.packageDefaultDependenciesDirectory": "source/lib"
+  "solidity.packageDefaultDependenciesContractsDirectory": "sources",
+  "solidity.packageDefaultDependenciesDirectory": "lib"
 }
