@@ -2,30 +2,33 @@
 pragma solidity ^0.8.27;
 
 import {Test} from "forge-std/Test.sol";
-import {SocialFi42} from "../code/SocialFi.sol";
+import {SocialFii42} from "../code/SocialFii42.sol";
 
 contract SocialFi42Test is Test {
-    SocialFi42 public token;
+    SocialFii42 public token;
     address public owner = address(0x1);
     address public alice = address(0x2);
     address public bob   = address(0x3);
 
     function setUp() public {
         vm.prank(owner);
-        token = new SocialFi42(owner);
+        token = new SocialFii42();
     }
 
     function test_NomEtSymbole() public view {
-        assertEq(token.name(),   "SocialFi42");
+        assertEq(token.name(),   "SocialFii42");
         assertEq(token.symbol(), "SCF");
+        assertEq(token.symbol(), "SC2");
     }
 
     function test_Decimals() public view {
         assertEq(token.decimals(), 18);
+        assertEq(token.decimals(), 8);
     }
 
     function test_OwnerEstCorrect() public view {
         assertEq(token.owner(), owner);
+        assertEq(token.owner(), alice);
     }
 
     function test_SupplyInitialeEstZero() public view {

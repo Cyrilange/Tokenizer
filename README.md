@@ -12,12 +12,48 @@ _this project is made by csalamit_
 | Field | Value |
 |-------|-------|
 | **Network** | Ethereum Sepolia (testnet) |
-| **Contract Address** | `0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036` |
+| **Contract Address** | 0x88198937B1eC5338dAae2dFDb30E5B45Bd525c82 |
+| **first trasnaction hash** | 0x711307afbf1bbe48a77ad4022ac872387c093f0869c9fa616496606985cc9443 |
 | **Standard** | ERC-20 |
 | **Symbol** | SCF |
 | **Decimals** | 18 |
 
-🔍 [View on Etherscan](https://sepolia.etherscan.io/address/0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036)
+
+----
+
+## openzepellin
+
+to do a contract with standart ERC20 you can use zepelin as it is alraedy audit , but for the project we will
+do it from 0
+
+
+contract with zepellin :
+
+// SPDX-License-Identifier: MIT (without this comment you can have issue with pragma)
+pragma solidity ^0.8.27;
+
+// SocialFi.sol
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import {ERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
+
+//contract made with erc20 protocole
+
+contract SocialFi42 is ERC20, Ownable, ERC20Permit { 	//constructor is called one time
+    constructor(address initialOwner)
+        ERC20("SocialFi42", "SF2")
+        Ownable(initialOwner)
+        ERC20Permit("SocialFi42")
+    {}
+
+    function mint(address to, uint256 amount) public onlyOwner {			//function mint
+        _mint(to, amount);
+    }
+}
+
+---
+
+🔍 [View on Etherscan](https://sepolia.etherscan.io/address/0x88198937B1eC5338dAae2dFDb30E5B45Bd525c82)
 
 
 
@@ -77,7 +113,7 @@ cast send 0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036 \
 ### Check balance
 
 ```bash
-cast call 0x3Ce1936445Bf78966faF9E067D06AE4205Ed0036 \
+cast call _Contract Address_ \
   "balanceOf(address)(uint256)" \
   <WALLET_ADDRESS> \
   --rpc-url $RPC_URL
@@ -137,6 +173,11 @@ PRIVATE_KEY=<YOUR_PRIVATE_KEY>
 | Treasury | 10% |
 
 ---
+
+## ressources
+
+[ERC20](https://eips.ethereum.org/EIPS/eip-20)
+[openzeppelin ERC20](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol)
 
 ## 📜 License
 
