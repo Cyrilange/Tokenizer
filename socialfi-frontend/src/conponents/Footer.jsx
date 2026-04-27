@@ -12,19 +12,19 @@ export default function Footer() {
     >
       <Container maxWidth="md">
         <Typography variant="h4" gutterBottom>
-          Whitepaper — SocialFi42 (SCF)
+          Whitepaper — SocialFii42 (SF2)
         </Typography>
 
         <Typography variant="h6" gutterBottom>
           1. Introduction
         </Typography>
         <Typography sx={{ mb: 2 }}>
-          SocialFi42 is a decentralized social media platform built on Web3 principles,
+          SocialFii42 is a decentralized social media platform built on Web3 principles,
           designed to give users full ownership of their data, content, and digital interactions.
         </Typography>
 
         <Typography sx={{ mb: 2 }}>
-          Unlike traditional Web2 platforms, SocialFi42 shifts ownership back to users through blockchain technology.
+          Unlike traditional Web2 platforms, SocialFii42 shifts ownership back to users through blockchain technology.
         </Typography>
 
         <Typography variant="h6">2. Vision</Typography>
@@ -38,9 +38,10 @@ export default function Footer() {
         <Typography variant="h6" mt={2}>3. Token Overview</Typography>
         <Typography>
           Standard: ERC-20 <br />
-          Name: SocialFi42 <br />
+          Name: SocialFii42 <br />
           Symbol: SCF <br />
           Decimals: 18
+          Address : 0x88198937B1eC5338dAae2dFDb30E5B45Bd525c82 <br />
         </Typography>
 
         <Typography variant="h6" mt={2}>4. Tokenomics</Typography>
@@ -72,11 +73,11 @@ export default function Footer() {
 
         <Typography variant="h6" mt={2}>9. Conclusion</Typography>
         <Typography>
-          SocialFi42 redefines social media by giving ownership and value back to users.
+          SocialFii42 redefines social media by giving ownership and value back to users.
         </Typography>
 
         <Typography variant="body2" mt={4} color="gray">
-          © 2026 SocialFi42 — All rights reserved
+          © 2026 SocialFii42 — All rights reserved
         </Typography>
       </Container>
     </Box>
