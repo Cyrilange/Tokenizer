@@ -115,7 +115,7 @@ export default function Action() {
       const tx = await contract.approve(spender, ethers.parseEther(amount));
       setFeedback(STATUS.LOADING, `TX sent: ${tx.hash.slice(0, 10)}… Waiting for block…`);
       await tx.wait();
-      setFeedback(STATUS.SUCCESS, `Approved ${amount} SGM for ${spender.slice(0, 6)}…`);
+      setFeedback(STATUS.SUCCESS, `Approved ${amount} SF2 for ${spender.slice(0, 6)}…`);
       setSpender(""); setAmount("");
     } catch (err) {
       setFeedback(STATUS.ERROR, err?.reason || err?.message || "Approve failed.");
@@ -179,7 +179,7 @@ export default function Action() {
           <div style={styles.balanceRow}>
             <div>
               <div style={styles.label}>Token Balance</div>
-              <div style={styles.balanceValue}>{balance ? `${balance} SGM` : "—"}</div>
+              <div style={styles.balanceValue}>{balance ? `${balance} SF2` : "—"}</div>
             </div>
             <button
               style={{ ...styles.btn, ...styles.btnGhost, opacity: isLoading ? 0.6 : 1 }}
@@ -251,7 +251,7 @@ export default function Action() {
           {allowance && (
             <div style={styles.addressBox}>
               <span style={styles.label}>Allowance</span>
-              <span style={styles.address}>{allowance} SGM</span>
+              <span style={styles.address}>{allowance} SF2</span>
             </div>
           )}
           <div style={styles.btnRow}>
