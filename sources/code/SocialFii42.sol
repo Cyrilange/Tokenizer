@@ -3,7 +3,7 @@ pragma solidity ^0.8.27;
 
 //this contract is socialfi2, the contract using erc20 but with no zepellin , 
 //well because it is not audit then , the zepellin version is better but this one 
-//make you udnerstand deep down how it is created
+//make you understand deep down how it is created
 
 
 contract SocialFii42 {

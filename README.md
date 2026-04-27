@@ -1,6 +1,6 @@
 _this project is made by csalamit_
 
-# ⬡ SocialFi42 — SCF Token
+# ⬡ SocialFii42 — SCF Token
 
 > A decentralized social media token built on Ethereum (Sepolia testnet).  
 > Own your data. Own your value.
@@ -15,7 +15,7 @@ _this project is made by csalamit_
 | **Contract Address** | 0x88198937B1eC5338dAae2dFDb30E5B45Bd525c82 |
 | **first trasnaction hash** | 0x711307afbf1bbe48a77ad4022ac872387c093f0869c9fa616496606985cc9443 |
 | **Standard** | ERC-20 |
-| **Symbol** | SCF |
+| **Symbol** | SF2 |
 | **Decimals** | 18 |
 
 
